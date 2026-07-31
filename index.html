@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muzamil Hussain · Portfolio</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0b0d10;
+            --bg-secondary: #13171c;
+            --bg-card: #1a1f26;
+            --bg-card-hover: #232a33;
+            --text-primary: #f0f4f8;
+            --text-secondary: #b0c4d9;
+            --text-muted: #7a8a9e;
+            --accent: #5b7cfa;
+            --accent-light: #7b9cff;
+            --accent-glow: rgba(91, 124, 250, 0.25);
+            --border-color: #2a323c;
+            --radius: 14px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            --header-height: 80px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        a:hover {
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- SCROLLBAR ---------- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 8px;
+        }
+
+        /* ---------- HEADER / NAV ---------- */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(11, 13, 16, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--accent-light), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            padding: 60px 0 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-light), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .hero .summary {
+            max-width: 720px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-top: 8px;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+        .btn-outline:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--text-secondary);
+        }
+
+        /* ---------- SECTION COMMON ---------- */
+        section {
+            padding: 50px 0 30px;
+            border-bottom: 1px solid var(--border-color);
+            scroll-margin-top: 80px;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title i {
+            color: var(--accent);
+            font-size: 1.6rem;
+        }
+
+        /* ---------- EDUCATION ---------- */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .edu-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .edu-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        .edu-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .edu-card .meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 4px 0 6px;
+        }
+        .edu-card .detail {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ---------- SKILLS ---------- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+        }
+        .skill-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .skill-tag:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        /* ---------- PROJECTS ---------- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .project-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+        .project-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .project-card .tech {
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        /* ---------- CERTIFICATIONS & ACHIEVEMENTS ---------- */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .list-block {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            border: 1px solid var(--border-color);
+        }
+        .list-block h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .list-block h3 i {
+            color: var(--accent);
+        }
+        .list-block ul {
+            list-style: none;
+            padding: 0;
+        }
+        .list-block li {
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .list-block li:last-child {
+            border-bottom: none;
+        }
+        .list-block li i {
+            color: var(--accent);
+            font-size: 0.7rem;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* ---------- LANGUAGES & COMPETENCIES ---------- */
+        .lang-comp {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        .lang-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .lang-item {
+            background: var(--bg-card);
+            padding: 6px 18px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .comp-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+        }
+        .comp-item {
+            background: var(--bg-card);
+            padding: 6px 16px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ---------- CONTACT / FOOTER ---------- */
+        .contact-section {
+            padding: 40px 0 30px;
+        }
+        .contact-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .contact-links a:hover {
+            color: var(--text-primary);
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 0 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .edu-grid,
+            .project-grid,
+            .two-col-grid,
+            .lang-comp {
+                grid-template-columns: 1fr;
+            }
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .lang-comp {
+                grid-template-columns: 1fr;
+            }
+            header {
+                height: auto;
+                padding: 16px 0;
+            }
+            :root {
+                --header-height: 120px;
+            }
+            section {
+                scroll-margin-top: 120px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            :root {
+                --header-height: 140px;
+            }
+            section {
+                scroll-margin-top: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container nav">
+            <div class="logo">Muzamil Hussain</div>
+            <div class="nav-links">
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero" id="hero">
+            <h1>Hi, I'm <span>Muzamil Hussain</span></h1>
+            <div class="subtitle">Computer Science Student | Eager to Launch a Career in Technology</div>
+            <div class="summary">
+                Computer Science student at SZABIST University with proven ability to build end-to-end software solutions — from a JavaFX bank management system to a full‑stack PHP/MySQL hostel platform and a low‑level Assembly parking system. 1st place in SZABIST Tech Fest 2025 Code Debugging and 3rd in Code Quest 2024. Seeking an entry‑level software engineering role to deliver high‑quality, maintainable code.
+            </div>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION ===== -->
+        <section id="education">
+            <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <h3>B.S. Computer Science</h3>
+                    <div class="meta">SZABIST University, Larkana Campus · 2024 – 2028 (expected)</div>
+                    <!-- CGPA UPDATED -->
+                    <div class="detail">CGPA: 3.83 · Coursework: OOP, Data Structures, Systems Analysis, DBMS</div>
+                </div>
+                <div class="edu-card">
+                    <h3>Intermediate – Pre‑Engineering</h3>
+                    <div class="meta">Govt. Boys Degree College, Larkana · 2023</div>
+                    <div class="detail">BISE Larkana Board · 76% · Grade A</div>
+                </div>
+                <div class="edu-card">
+                    <h3>Matriculation – Science</h3>
+                    <div class="meta">IBA Public School, Larkana · 2021</div>
+                    <div class="detail">AKUED Board · 76.3% · Grade A</div>
+                </div>
+                <div class="edu-card">
+                    <h3>Diploma in IT</h3>
+                    <div class="meta">SZABIST ZABTECH, Larkana · 1 Year</div>
+                    <div class="detail">Plus Computer Operator (NAVTTC) &amp; Advanced Excel certifications</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS ===== -->
+        <section id="skills">
+            <div class="section-title"><i class="fas fa-cogs"></i> Technical Skills</div>
+            <div class="skills-grid">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">HTML / CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">DBMS &amp; Normalisation</span>
+                <span class="skill-tag">JavaFX / Swing</span>
+                <span class="skill-tag">Assembly Language</span>
+                <span class="skill-tag">OOP &amp; Data Structures</span>
+                <span class="skill-tag">Systems Architecture</span>
+                <span class="skill-tag">Microsoft Office Suite</span>
+                <span class="skill-tag">Advanced Excel</span>
+                <span class="skill-tag">WordPress</span>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects">
+            <div class="section-title"><i class="fas fa-folder-open"></i> Featured Projects</div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Bank Management System</h3>
+                    <div class="tech">Java · JavaFX · Swing</div>
+                    <p>Full‑featured GUI desktop application with OOP principles, data structures, and complete SDLC from requirements to testing. Supports account management, transactions, and reporting.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Parking Management System</h3>
+                    <div class="tech">Assembly Language</div>
+                    <p>Low‑level systems programming project demonstrating memory management, CPU registers, and resource tracking. Simulates real‑world parking operations with efficient low‑level control.</p>
+                </div>
+                <div class="project-card">
+                    <h3>University Hostel Management</h3>
+                    <div class="tech">PHP · MySQL · HTML · CSS</div>
+                    <p>Full‑stack web application for student room allocation, fee tracking, complaint management, and admin dashboard. Normalised relational database ensures data integrity and fast queries.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Food‑Hub</h3>
+                    <div class="tech">HTML · CSS · JavaScript</div>
+                    <p>A responsive food ordering and menu display platform built with vanilla HTML, CSS, and JavaScript. Features interactive menus, cart functionality, and a clean, modern user interface.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Code Debugging Champion</h3>
+                    <div class="tech">Tech Fest 2025 · 1st Place</div>
+                    <p>Competed in a high‑pressure debugging competition, identifying and fixing complex logical and syntax errors across multiple languages. Demonstrated sharp analytical and problem‑solving skills.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ACHIEVEMENTS & CERTIFICATIONS ===== -->
+        <section id="achievements">
+            <div class="section-title"><i class="fas fa-trophy"></i> Honours &amp; Certifications</div>
+            <div class="two-col-grid">
+                <div class="list-block">
+                    <h3><i class="fas fa-medal"></i> Achievements</h3>
+                    <ul>
+                        <li><i class="fas fa-circle"></i> 1st Position – Code Debugging, Tech Fest 2025, SZABIST</li>
+                        <li><i class="fas fa-circle"></i> 3rd Position – Code Quest Competition, SZABIST 2024</li>
+                        <li><i class="fas fa-circle"></i> 1st Position – Sindh Education Organization MOCK TEST 2023</li>
+                        <li><i class="fas fa-circle"></i> Participation – Hackathon &amp; Quiz Competition, Tech Fest 2025</li>
+                    </ul>
+                </div>
+                <div class="list-block">
+                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Diploma in Information Technology (1 Year) – SZABIST ZABTECH</li>
+                        <li><i class="fas fa-check"></i> Computer Operator Certificate (6 Months) – NAVTTC</li>
+                        <li><i class="fas fa-check"></i> Advanced Excel Course (2 Months) – SZABIST ZABTECH</li>
+                        <li><i class="fas fa-check"></i> Data Science and Analytics – HP LIFE</li>
+                        <li><i class="fas fa-check"></i> Introduction to Cyber Security – HP LIFE</li>
+                        <li><i class="fas fa-check"></i> AI for Beginners – HP LIFE</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== LANGUAGES & COMPETENCIES ===== -->
+        <section id="languages">
+            <div class="section-title"><i class="fas fa-user-tie"></i> Languages &amp; Core Competencies</div>
+            <div class="lang-comp">
+                <div>
+                    <h3 style="margin-bottom:12px; font-weight:600;">Languages</h3>
+                    <div class="lang-list">
+                        <span class="lang-item">English</span>
+                        <span class="lang-item">Urdu</span>
+                        <span class="lang-item">Sindhi</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-bottom:12px; font-weight:600;">Core Competencies</h3>
+                    <div class="comp-list">
+                        <span class="comp-item">🎯 Achieves Results</span>
+                        <span class="comp-item">🧠 Technical Depth</span>
+                        <span class="comp-item">📝 Clear Communication</span>
+                        <span class="comp-item">📚 Continuous Learning</span>
+                        <span class="comp-item">🤝 Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section id="contact" class="contact-section">
+            <div class="section-title"><i class="fas fa-envelope"></i> Let's Connect</div>
+            <div class="contact-links">
+                <a href="mailto:muzamilarik@gmail.com" target="_blank"><i class="fas fa-envelope"></i> muzamilarik@gmail.com</a>
+                <a href="https://www.linkedin.com/in/muzamil-hussain-58b72436a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/MuzamilHussain08" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <p style="text-align:center; color:var(--text-muted); margin-top:20px; font-size:0.9rem;">
+                <i class="fas fa-map-pin"></i> Karachi, Sindh, Pakistan · Open to remote &amp; on‑site opportunities
+            </p>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            &copy; 2026 Muzamil Hussain · Built with <i class="fas fa-heart" style="color:var(--accent);"></i> and vanilla everything
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT FOR SMOOTH SCROLLING (NAV + BUTTONS) ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select ALL anchor links that point to an internal section (including .btn and .nav-links a)
+            const allInternalLinks = document.querySelectorAll('a[href^="#"]');
+            
+            allInternalLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    // Ignore if it's just "#" or empty
+                    if (href === '#' || href === '') return;
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault();
+                        
+                        const header = document.querySelector('header');
+                        const headerHeight = header.offsetHeight;
+                        
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 10;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update URL hash without causing a jump
+                        history.pushState(null, null, href);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
