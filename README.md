@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website! I'm a Computer Science student at SZABIST University, passionate about building end‑to‑end software solutions and eager to launch my career in technology.
 
 ## 🚀 Live Demo
-[https://muzamilhussain08.github.io/](https://muzamilhussain08.github.io/)  
+[[https://muzamilhussain08.github.io/](https://muzamilhussain08.github.io/) ](https://github.com/MuzamilHussain08/My-Portfolio) 
 *(Update this link after you deploy)*
 
 ## ✨ Features
